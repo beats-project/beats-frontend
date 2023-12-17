@@ -58,8 +58,12 @@ const SignIn = props => {
             Let's get in
           </h4>
           <div className="flex flex-col mt-8">
-            <Input {...emailValidation} />
-            <Input {...passwordValidation} />
+            <div>
+              <Input {...emailValidation} />
+            </div>
+            <div>
+              <Input {...passwordValidation} />
+            </div>
           </div>
           <div className="mt-5 flex justify-between items-center">
             <p>

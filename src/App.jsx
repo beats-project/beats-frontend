@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast'
 import routes from './routes/index.js'
 import SignIn from './pages/auth/Signin.jsx'
 import SignUp from './pages/auth/Signup.jsx'
+import PrivateRoutes from './components/PrivateRoutes.jsx'
 
 const DefaultLayout = lazy(() =>
   import('./components/layout/DefaultLayout.jsx'),
@@ -38,21 +39,23 @@ function App() {
         <Route path="/auth/signin" element={<SignIn />} />
         <Route path="/auth/signup" element={<SignUp />} />
         <Route element={<DefaultLayout />}>
-          <Route index element={<Dashboard />} />
-          {routes.map((route, index) => {
-            const { path, component: Component } = route
-            return (
-              <Route
-                key={index}
-                path={path}
-                element={
-                  <Suspense fallback={<div>Fallback</div>}>
-                    <Component />
-                  </Suspense>
-                }
-              />
-            )
-          })}
+          <Route element={<PrivateRoutes />}>
+            <Route index element={<Dashboard />} />
+            {routes.map((route, index) => {
+              const { path, component: Component } = route
+              return (
+                <Route
+                  key={index}
+                  path={path}
+                  element={
+                    <Suspense fallback={<Loader />}>
+                      <Component />
+                    </Suspense>
+                  }
+                />
+              )
+            })}
+          </Route>
         </Route>
       </Routes>
     </div>

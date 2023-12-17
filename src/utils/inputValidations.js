@@ -1,9 +1,13 @@
+import { MdEmail } from 'react-icons/md'
+import { RiLockPasswordFill } from "react-icons/ri";
+import { MdTextFields } from 'react-icons/md'
 
 export const firstNameValidation = {
   name: 'firstName',
   label: 'first Name',
   type: 'text',
   id: 'firstName',
+  icon: MdTextFields,
   placeholder: 'David',
   validation: {
     required: {
@@ -22,6 +26,7 @@ export const lastNameValidation = {
   label: 'last Name',
   type: 'text',
   id: 'lastName',
+  icon: MdTextFields,
   placeholder: 'Warner',
   validation: {
     required: {
@@ -40,6 +45,7 @@ export const descValidation = {
   label: 'description',
   multiline: true,
   id: 'description',
+  icon: MdTextFields,
   placeholder: 'write description ...',
   validation: {
     required: {
@@ -58,6 +64,7 @@ export const passwordValidation = {
   label: 'password',
   type: 'password',
   id: 'password',
+  icon: RiLockPasswordFill,
   placeholder: '*******',
   validation: {
     required: {
@@ -76,6 +83,7 @@ export const confirmPasswordValidation = {
   label: 'Retype Password',
   type: 'password',
   id: 'confirmPassword',
+  icon: RiLockPasswordFill,
   placeholder: '*******',
   validation: {
     required: {
@@ -94,6 +102,7 @@ export const numValidation = {
   label: 'number',
   type: 'number',
   id: 'num',
+  icon: MdTextFields,
   placeholder: 'write a random number',
   validation: {
     required: {
@@ -108,6 +117,7 @@ export const emailValidation = {
   label: 'email',
   type: 'email',
   id: 'email',
+  icon: MdEmail,
   placeholder: 'samj@gmail.com',
   validation: {
     required: {

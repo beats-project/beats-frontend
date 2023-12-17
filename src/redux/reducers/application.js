@@ -48,3 +48,5 @@ export default function appReducer(state = initialState, action) {
       return state
   }
 }
+
+export const getPageHeading = state => state.appData.pageHeading

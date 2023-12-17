@@ -9,6 +9,7 @@ export const Input = ({
   label,
   type,
   id,
+  icon: Icon,
   placeholder,
   validation,
   multiline,
@@ -30,7 +31,8 @@ export const Input = ({
   return (
     <div className={cn('flex flex-col gap-2 mb-2 input-div', className)}>
       <div className="flex justify-between">
-        <label htmlFor={id} className="font-semibold capitalize text-gray-800">
+        <label htmlFor={id} className="font-normal text-normal capitalize text-gray-800">
+          <Icon />
           {label}
         </label>
       </div>
