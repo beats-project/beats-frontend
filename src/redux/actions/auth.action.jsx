@@ -24,10 +24,16 @@ export const login = (email, password) => async dispatch => {
         display: 'flex',
       },
       success: {
-        duration: 3232000,
+        duration: 2000,
+        style: {
+          color: '#00A36C',
+        },
       },
       error: {
         duration: 5000,
+        style: {
+          color: '#D70040',
+        },
       },
     },
   )

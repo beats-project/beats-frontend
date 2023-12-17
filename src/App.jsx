@@ -1,18 +1,18 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Loader from './components/Loader.jsx'
 import { Route, Routes } from 'react-router-dom'
-import { Header } from './components/BaseLayouts/Header.jsx'
-import { Home } from './components/Home.jsx'
 import { Toaster } from 'react-hot-toast'
 import routes from './routes/index.js'
+import SignIn from './pages/auth/Signin.jsx'
+import SignUp from './pages/auth/Signup.jsx'
 
-const DefaultLayout = lazy(() => import('./layout/DefaultLayout'))
+const DefaultLayout = lazy(() =>
+  import('./components/layout/DefaultLayout.jsx'),
+)
+const Dashboard = lazy(() => import('./pages/dashboard/Dashboard.jsx'))
 
 function App() {
-  const [count, setCount] = useState(0)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -27,12 +27,18 @@ function App() {
         position="top-right"
         reverseOrder={false}
         containerClassName="overflow-auto"
+        containerStyle={{
+          top: 22,
+          left: 20,
+          bottom: 20,
+          right: 40,
+        }}
       />
       <Routes>
-        <Route path="/auth/signin" element={<Header />} />
-        <Route path="/auth/signup" element={<Header />} />
+        <Route path="/auth/signin" element={<SignIn />} />
+        <Route path="/auth/signup" element={<SignUp />} />
         <Route element={<DefaultLayout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Dashboard />} />
           {routes.map((route, index) => {
             const { path, component: Component } = route
             return (

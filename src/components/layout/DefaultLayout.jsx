@@ -1,8 +1,8 @@
 // import { } from 'react';
 
 import { Outlet } from 'react-router-dom';
-import {Sidebar} from "../components/BaseLayouts/Sidebar.jsx";
-import {Header} from "../components/BaseLayouts/Header.jsx";
+import {Sidebar} from "../BaseLayouts/Sidebar.jsx";
+import {Header} from "../BaseLayouts/Header.jsx";
 
 const DefaultLayout = () => {
     // const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -22,7 +22,7 @@ const DefaultLayout = () => {
                     {/* <!-- ===== Header End ===== --> */}
 
                     {/* <!-- ===== Main Content Start ===== --> */}
-                    <main>
+                    <main className='content-holder'>
                         <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
                             <Outlet />
                         </div>
