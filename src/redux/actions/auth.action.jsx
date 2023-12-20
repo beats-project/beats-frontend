@@ -3,9 +3,12 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from './ActionTypes'
 // import {toast} from "react-toastify"
 import toast from 'react-hot-toast'
 import { getFromLS, removeFromLS, setToLS } from '../../utils'
+
+const URL_PREFIX = 'auth/'
+
 export const login = (email, password) => async dispatch => {
   toast.promise(
-    postRequest('login', { email, password }),
+    postRequest(URL_PREFIX + 'login', { email, password }),
     {
       loading: 'Please wait...',
       success: res => {

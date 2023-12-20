@@ -1,9 +1,9 @@
 import axios from 'axios'
-import { BASE_AUTH_URL } from '../utils/constants'
+import { BASE_URL } from '../utils/constants'
 
 const axiosClient = axios.create()
 
-axiosClient.defaults.baseURL = 'http://localhost:8080/api/v1/auth'
+axiosClient.defaults.baseURL = BASE_URL
 
 axiosClient.defaults.headers = {
   'Content-Type': 'application/json',

@@ -7,6 +7,7 @@ import routes from './routes/index.js'
 import SignIn from './pages/auth/Signin.jsx'
 import SignUp from './pages/auth/Signup.jsx'
 import PrivateRoutes from './components/PrivateRoutes.jsx'
+import PageNotFound from './components/BaseLayouts/PageNotFound.jsx'
 
 const DefaultLayout = lazy(() =>
   import('./components/layout/DefaultLayout.jsx'),
@@ -57,6 +58,7 @@ function App() {
             })}
           </Route>
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   )
