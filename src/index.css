@@ -612,3 +612,9 @@ border-radius: 0 0 16px 16px; */
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 30px red);
 }
+
+.card {
+  transform: perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+  background-color: #f6f6f6;
+}

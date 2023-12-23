@@ -6,11 +6,13 @@ import { IoMdLogOut } from 'react-icons/io'
 import { clientPaths } from '../../utils/constants.js'
 import { logout } from '../../redux/actions/auth.action.jsx'
 import { getPageHeading } from '../../redux/reducers/application.js'
+import { getUserName } from '../../redux/reducers/auth.reducer.js'
 
 // const getHeading = state => state
 
 export const Header = () => {
   const pageHeading = useSelector(getPageHeading, shallowEqual)
+  const userName = useSelector(getUserName)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const doLogout = () => {
@@ -29,6 +31,7 @@ export const Header = () => {
           </div>
         </div>
         <div className="flex items-center gap-4 text-xl transition-all duration-100 ease-linear">
+          <p className="text-sm text-white">Hey {userName}</p>
           <a onClick={doLogout} title="Logout" className="logout-btn">
             <IoMdLogOut color="aliceblue" size={20} />
             <span className="logout-btn__text text-sm ml-2">Logout</span>

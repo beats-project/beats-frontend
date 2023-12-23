@@ -12,6 +12,7 @@ import {
 } from '../../utils/inputValidations'
 import { Input } from '../../components/FormControls/Input.jsx'
 import { clientPaths } from '../../utils/constants.js'
+import Button from '../../components/FormControls/Button.jsx'
 
 const pageContent = {
   linkURL: clientPaths.signupURL,
@@ -85,12 +86,7 @@ const SignIn = props => {
               </Link>
             </p>
 
-            <button
-              onClick={doLogin}
-              className="p-3 ml-4 px-12 rounded-full outline-none hover:outline-none bg-blue-600 font-semibold text-white flex  gap-1 hover:bg-blue-800"
-            >
-              {pageContent.buttonText}
-            </button>
+            <Button title={pageContent.buttonText} onClickHandler={doLogin} />
           </div>
         </form>
       </FormProvider>

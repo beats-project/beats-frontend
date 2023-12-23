@@ -13,6 +13,7 @@ import {
 import { Input } from '../../components/FormControls/Input.jsx'
 
 import { clientPaths } from '../../utils/constants.js'
+import Button from '../../components/FormControls/Button.jsx'
 
 const pageContent = {
   linkURL: clientPaths.signinURL,
@@ -26,7 +27,7 @@ const pageContent = {
 const SignUp = props => {
   const methods = useForm()
 
-  const onSubmit = methods.handleSubmit(data => {
+  const doRegister = methods.handleSubmit(data => {
     console.log(data)
     methods.reset()
   })
@@ -78,12 +79,7 @@ const SignUp = props => {
             </Link>
           </p>
 
-          <button
-            onClick={onSubmit}
-            className="p-3 px-12 rounded-full outline-none hover:outline-none bg-blue-600 font-semibold text-white flex  gap-1 hover:bg-blue-800"
-          >
-            {pageContent.buttonText}
-          </button>
+          <Button title={pageContent.buttonText} onClickHandler={doRegister} />
         </div>
       </form>
     </FormProvider>
