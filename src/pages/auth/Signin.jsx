@@ -13,6 +13,15 @@ import {
 import { Input } from '../../components/FormControls/Input.jsx'
 import { clientPaths } from '../../utils/constants.js'
 
+const pageContent = {
+  linkURL: clientPaths.signupURL,
+  linkText: 'Do not have an account? ',
+  header: 'Welcome back',
+  subHeader: 'Get in',
+  buttonText: 'Sign In',
+  linkButtonText: 'Sign up',
+}
+
 const SignIn = props => {
   const methods = useForm()
   const navigate = useNavigate()
@@ -48,14 +57,14 @@ const SignIn = props => {
           autoComplete="off"
           className="form-container"
         >
-          <h1 className="mb-4 text-4xl  leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white">
+          <h1 className="mb-2 text-4xl  leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white">
             <span className="text-blue-600 dark:text-blue-500 font-extrabold ">
-              Sign In
+              {pageContent.header}
             </span>
-            <span className="ml-4 text-3xl">here</span>
+            {/* <span className="ml-4 text-3xl">here</span> */}
           </h1>
           <h4 className="mb-4 text-3xl  leading-none tracking-tight text-gray-500 md:text-2xl lg:text-xl dark:text-white">
-            Let's get in
+            {pageContent.subHeader}
           </h4>
           <div className="flex flex-col mt-8">
             <div>
@@ -67,12 +76,12 @@ const SignIn = props => {
           </div>
           <div className="mt-5 flex justify-between items-center">
             <p>
-              Don't have an account?
+              {pageContent.linkText}
               <Link
-                to={clientPaths.signupURL}
+                to={pageContent.linkURL}
                 className="text-blue-600 ml-2 rainbow"
               >
-                Sign Up
+                {pageContent.linkButtonText}
               </Link>
             </p>
 
@@ -80,7 +89,7 @@ const SignIn = props => {
               onClick={doLogin}
               className="p-3 ml-4 px-12 rounded-full outline-none hover:outline-none bg-blue-600 font-semibold text-white flex  gap-1 hover:bg-blue-800"
             >
-              Login
+              {pageContent.buttonText}
             </button>
           </div>
         </form>

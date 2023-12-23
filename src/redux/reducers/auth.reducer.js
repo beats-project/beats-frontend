@@ -1,7 +1,7 @@
 import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../actions/ActionTypes'
 import { getFromLS } from '../../utils/index.js'
 
-const user = getFromLS('user')
+const user = JSON.parse(getFromLS('user'))
 
 const initialState = user
   ? { isLoggedIn: true, user, isSuccessfull: true }
@@ -37,4 +37,4 @@ export default function authReducer(state = initialState, action) {
   }
 }
 
-export const getState = (state) => state
+export const getState = state => state

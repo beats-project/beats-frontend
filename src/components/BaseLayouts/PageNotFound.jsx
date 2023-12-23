@@ -23,7 +23,7 @@ const PageNotFound = () => {
             </p>
 
             <NavLink
-              className="px-8 inline py-3 text-md font-medium leading-5 shadow text-white transition-colors duration-150 border border-transparent rounded-full focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-blue-700"
+              className="px-8 inline py-3 text-md font-medium leading-5 shadow text-white transition-colors duration-150 border border-transparent rounded-full focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-blue-700 hover:text-white"
               to="/"
             >
               Back to Dashboard

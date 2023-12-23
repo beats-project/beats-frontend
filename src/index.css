@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Merriweather&family=Raleway:wght@500&family=Roboto:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -89,11 +90,12 @@ a {
 .parent {
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.35); /* 0.35 */
+  background-color: rgba(255, 255, 255, 0.05); /* 0.35 */
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 }
 body {
   font-family: 'Poppins', sans-serif;
+  /* font-family: 'Raleway', serif; */
   /* @apply bg-slate-50; */
 
   /* @apply bg-gradient-to-tr from-purple-400 via-pink-500 to-red-500; */
@@ -119,11 +121,47 @@ body {
     #ff6a00
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  padding: 1rem 1rem;
+  /* padding: 1rem 1rem; */
+
+  background: #3a6186; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #89253e,
+    #3a6186
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #89253e,
+    #3a6186
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background: #3a6073; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3a6073,
+    /* #3a7bd5 */ #3a6073 /* #3a6073 */
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3a6073,
+    #3a6073
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background: #1e3c72; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2a5298,
+    #1e3c72
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2a5298,
+    #1e3c72
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .wrapper {
-  width: 95vw;
-  height: 95vh;
+  width: 98vw;
+  height: 98vh;
 }
 .main {
   /* padding: 4px 4px; */
@@ -207,12 +245,17 @@ body {
 }
 .nav-title {
   /* color: whitesmoke; */
-  background-color: rgba(248, 248, 255, 0.261);
-  color: black;
+  background-color: rgba(248, 248, 255, 0.05); /* 0.261 */
+  background-color: white;
+  color: aliceblue;
   border-radius: 4px 32px 32px 4px;
   padding: 0.5rem 2rem;
+
   /* margin-left: 3rem; */
   /* font-size: 1.5rem; */
+}
+.nav-title span {
+  color: #122c39;
 }
 .logo-img {
   width: 36px;
@@ -526,20 +569,21 @@ border-radius: 0 0 16px 16px; */
   /* border-radius: 50%; */
   display: flex;
   align-items: center;
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
   margin-right: 4px;
 }
 .logout-btn:hover {
   /* background-color: #2135477a; */
-  background-color: rgba(248, 248, 255, 0.261);
+  background-color: rgba(248, 248, 255, 0.1);
   padding: 8px;
   border-radius: 24px;
   /* transform: scale(1.1); */
 }
 .logout-btn__text {
   display: none;
-  transition: all 0.2s ease;
-  color: #1a1a1a;
+  transition: all 0.2s ease-in-out;
+  /* color: #1a1a1a; */
+  color: aliceblue;
 }
 
 .logout-btn:hover .logout-btn__text {

@@ -10,12 +10,13 @@ axiosClient.defaults.headers = {
   Accept: 'application/json',
   'Access-Control-Allow-Origin': '*',
 }
+axios.defaults.withCredentials = true
 
 //All request will wait 10 seconds before timeout
 axiosClient.defaults.timeout = 10000
 
-export function getRequest(URL) {
-  return axiosClient.get(`/${URL}`).then(response => response)
+export function getRequest(URL, payload) {
+  return axiosClient.get(`/${URL}`, payload)
 }
 
 export function postRequest(URL, payload) {

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import routes from '../../routes'
-import appLogo from '../../assets/react.svg'
+import appLogo from '../../assets/react-logo1.svg'
 
 export const Sidebar = () => {
   return (

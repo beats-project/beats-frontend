@@ -1,8 +1,7 @@
-import { postRequest } from '../../axios/axiosClient'
 import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from './ActionTypes'
-// import {toast} from "react-toastify"
 import toast from 'react-hot-toast'
 import { getFromLS, removeFromLS, setToLS } from '../../utils'
+import { getRequest, postRequest } from '../../axios/axiosClient'
 
 const URL_PREFIX = 'auth/'
 
@@ -48,4 +47,15 @@ export const logout = () => async dispatch => {
     type: LOGOUT,
   })
   toast.success('Logged out')
+}
+
+export const refreshToken = () => async (dispatch, getState) => {
+  const accessToken = getState().authReducer.user.accessToken
+  getRequest('demo-controller', {
+    headers: {
+      Authorization: 'Bearer ' + accessToken,
+    },
+  })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
 }
