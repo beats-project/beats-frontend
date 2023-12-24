@@ -90,7 +90,7 @@ a {
 .parent {
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.05); /* 0.35 */
+  background-color: rgba(255, 255, 255, 0.25); /* 0.05 0.35 */
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 }
 body {
@@ -167,8 +167,10 @@ body {
   /* padding: 4px 4px; */
 }
 .content-holder {
-  background-color: #fff;
+  /* background-color: #fff; */
   height: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   /* border-radius: 0 16px 16px 0; */
   /* margin-top: 4px; */
 }
@@ -176,7 +178,7 @@ body {
   font-family: 'Cookie', cursive;
 }
 .sidebar-container {
-  width: 120px;
+  /* width: 120px; */
   background-color: #f5f5f7f0; /* f5f5f5d4 f5f5f5a0 rgba(250, 235, 215, 0.603) f5f5f5a0 */
 }
 .sidebar-heading {
@@ -237,25 +239,30 @@ body {
 }
 .navigation {
   /* background-color: #e1ebf5bd; */
+  /* padding:4px 8px; */
+  padding-top: 4px;
+  padding-bottom: 4px;
   background-color: transparent;
 }
 .navbar {
   /* max-width: 61rem; */
-  /* margin: 0 1.5rem; */
+  /* margin: 4px 8px; */
+  /* border-radius: 0 16px 0 0;
+  background-color: #f6f6f6; */
 }
 .nav-title {
   /* color: whitesmoke; */
-  background-color: rgba(248, 248, 255, 0.05); /* 0.261 */
-  background-color: white;
-  color: aliceblue;
-  border-radius: 4px 32px 32px 4px;
-  padding: 0.5rem 2rem;
+  /* background-color: rgba(248, 248, 255, 0.05);0.261 */
+  /* background-color: white; */
+  /* color: aliceblue; */
+  /* border-radius: 4px 32px 32px 4px; */
+  padding: 0.5rem 1.5rem;
 
   /* margin-left: 3rem; */
   /* font-size: 1.5rem; */
 }
 .nav-title span {
-  color: #122c39;
+  /* color: #122c39; */
 }
 .logo-img {
   width: 36px;
@@ -574,7 +581,8 @@ border-radius: 0 0 16px 16px; */
 }
 .logout-btn:hover {
   /* background-color: #2135477a; */
-  background-color: rgba(248, 248, 255, 0.1);
+  background-color: rgba(189, 189, 208, 0.227);
+  outline: 1px solid grey;
   padding: 8px;
   border-radius: 24px;
   /* transform: scale(1.1); */
@@ -616,5 +624,8 @@ border-radius: 0 0 16px 16px; */
 .card {
   transform: perspective(1px) translateZ(0);
   backface-visibility: hidden;
-  background-color: #f6f6f6;
+  background-color: #eee;
+}
+.card:hover {
+  background-color: #e5e5e5;
 }

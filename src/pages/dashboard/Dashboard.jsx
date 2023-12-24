@@ -15,14 +15,17 @@ const Dashboard = () => {
   }, [])
   return (
     <>
-      <div className="flex flex-2 grow items-center flex-wrap mt-3 -m-3 ">
-        {projects.map((project, idx) => (
-          <div className="w-1/3 p-3" key={idx}>
-            <Link href="/sb">
-              <ProjectCard project={'hj'} />
-            </Link>
-          </div>
-        ))}
+      <div className="p-4 border-y border-x  border-neutral-200	 rounded-xl">
+        <p className="text-2xl font-semibold">My Projects</p>
+        <div className="projects-list flex flex-2 grow items-center flex-wrap mt-3 -m-3">
+          {projects.map((project, idx) => (
+            <div className="w-1/3 p-3" key={idx}>
+              <Link href="/sb">
+                <ProjectCard project={'hj'} />
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )
