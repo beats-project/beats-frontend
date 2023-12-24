@@ -31,7 +31,7 @@ export const Header = () => {
           </div>
         </div>
         <div className="flex items-center gap-4 text-xl transition-all duration-100 ease-linear">
-          <p className="text-sm text-white">Hey {userName}</p>
+          <p className="text-base text-white">Hey {userName}</p>
           <a onClick={doLogout} title="Logout" className="logout-btn">
             <IoMdLogOut color="white" size={20} />
             <span className="logout-btn__text text-sm ml-2">Logout</span>

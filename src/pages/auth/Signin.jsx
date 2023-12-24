@@ -38,8 +38,8 @@ const SignIn = props => {
 
   useEffect(() => {
     let defaultValues = {}
-    defaultValues.email = 'zcoder@gmail.com'
-    defaultValues.password = 'zcoder123'
+    defaultValues.email = 'viratj@gmail.com'
+    defaultValues.password = 'virat123'
     methods.reset({ ...defaultValues })
   }, [])
 

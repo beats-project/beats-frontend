@@ -2,6 +2,7 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from './ActionTypes'
 import toast from 'react-hot-toast'
 import { getFromLS, removeFromLS, setToLS } from '../../utils'
 import { getRequest, postRequest } from '../../axios/axiosClient'
+import apiClientPrivate from '../../axios/axiosConfig'
 
 const URL_PREFIX = 'auth/'
 
@@ -51,11 +52,16 @@ export const logout = () => async dispatch => {
 
 export const refreshToken = () => async (dispatch, getState) => {
   const accessToken = getState().authReducer.user.accessToken
-  getRequest('demo-controller', {
-    headers: {
-      Authorization: 'Bearer ' + accessToken,
-    },
-  })
+  // getRequest('demo-controller', {
+  //   headers: {
+  //     Authorization: 'Bearer ' + accessToken,
+  //   },
+  // })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.log(err))
+  const api = apiClientPrivate
+  api
+    .get('demo-controller')
     .then(res => console.log(res))
     .catch(err => console.log(err))
 }

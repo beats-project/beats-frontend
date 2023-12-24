@@ -3,6 +3,7 @@ import { setPageHeading } from '../../redux/actions'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ProjectCard from '../../components/ProjectCard'
+import { refreshToken } from '../../redux/actions/auth.action'
 
 const getData = state => state
 
@@ -12,11 +13,12 @@ const Dashboard = () => {
   const projects = [1, 2, 3]
   useEffect(() => {
     dispatch(setPageHeading('Dashboard'))
+    dispatch(refreshToken())
   }, [])
   return (
     <>
-      <div className="p-4 border-y border-x  border-neutral-200	 rounded-xl">
-        <p className="text-2xl font-semibold">My Projects</p>
+      <div className="dashboard-container p-4 rounded-xl">
+        <p className="text-2xl font-semibold text-white">My Projects</p>
         <div className="projects-list flex flex-2 grow items-center flex-wrap mt-3 -m-3">
           {projects.map((project, idx) => (
             <div className="w-1/3 p-3" key={idx}>

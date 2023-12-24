@@ -39,4 +39,4 @@ export default function authReducer(state = initialState, action) {
 
 export const getState = state => state
 
-export const getUserName = state => state.authReducer.user.firstName
+export const getUserName = state => state.authReducer.user?.firstName
