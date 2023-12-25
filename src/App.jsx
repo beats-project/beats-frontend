@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
-import './App.css'
+// import './App.css'
 import Loader from './components/Loader.jsx'
 import { Route, Routes } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'

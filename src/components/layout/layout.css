@@ -1,14 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Merriweather&family=Raleway:wght@500&family=Roboto:wght@400;500&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
+klbody {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  /* min-width: 320px; */
+  min-width: 100vw;
   min-height: 100vh;
 }
 
@@ -25,16 +20,26 @@ a {
   cursor: pointer;
 }
 
-body {
-  font-family: 'Ubuntu';
-  background-color: #f6f6f6f0;
-}
 .wrapper {
   width: 100vw;
   height: 100vh;
+  /* background-color: #f6f6f6f0; */
+  background-color: #f8f9fe;
 }
 .main {
   /* padding: 4px 4px; */
+}
+.hero {
+  height: 400px;
+  /* background: linear-gradient(90deg, #5e72e4 20%, #825ee4 100%); */
+  background: #5E72E4;
+  background: linear-gradient(
+    180deg,
+    #5E72E4 50%,
+    #172b4d71 100%
+  );
+
+  color: white;
 }
 .content-holder {
   /* background-color: #fff; */
@@ -42,14 +47,16 @@ body {
   /* background-color: #e5e5e5; */
   /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25); */
   /* border-radius: 0 16px 16px 0; */
-  /* margin-top: 4px; */
+  margin-top: -300px;
+  padding: 0 16px;
 }
 .app-title {
   font-family: 'Cookie', cursive;
 }
 .sidebar-container {
-  /* width: 120px; */
-  /*background-color: #f5f5f7f0; /* f5f5f5d4 f5f5f5a0 rgba(250, 235, 215, 0.603) f5f5f5a0 */
+  /* margin: 8px 0 8px 8px; */
+  width: 120px;
+  background-color: #f5f5f7f0; /* f5f5f5d4 f5f5f5a0 rgba(250, 235, 215, 0.603) f5f5f5a0
 }
 .sidebar-heading {
   flex: 0.2;
@@ -70,23 +77,23 @@ body {
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.096);
   /* padding: 2rem; */
-  border-radius: 16px;
+  /* border-radius: 16px; */
   min-height: 95vh;
 
   background-color: #e1ebf5d3; /* #e1ebf5d0 */
 
   background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border-radius: 16px;
+  /* border-radius: 16px; */
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   /* display: flex;
       padding: 1rem; */
 
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 .app-container {
@@ -102,9 +109,10 @@ body {
   /* padding:4px 8px; */
   /* padding-top: 4px;
   padding-bottom: 4px; */
-  padding: 4px 16px ;
+  padding: 4px 0px;
   background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  /* border-bottom: 1px solid rgba(7, 2, 2, 0.169); */
+  margin: 0 16px;
 }
 .navbar {
   /* max-width: 61rem; */
@@ -118,7 +126,7 @@ body {
   /* background-color: white; */
   /* color: aliceblue; */
   /* border-radius: 4px 32px 32px 4px; */
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 0.5rem;
 
   /* margin-left: 3rem; */
   /* font-size: 1.5rem; */
@@ -317,6 +325,10 @@ div *::-webkit-scrollbar-thumb {
   flex-direction: column;
   color: #000;
 }
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.912);
+}
+
 .link:hover .link-icon {
   transform: scale(1.5);
 }
@@ -325,9 +337,21 @@ div *::-webkit-scrollbar-thumb {
   font-weight: 600;
 }
 .sidebar-links a.active {
-  border-right: 4px solid rgba(0, 100, 200, 1); /* 213547 */
+  /* border-right: 4px solid #5e72e4; 213547 */
   /* color: #3797c3; */
-  color: rgba(0, 100, 200, 1);
+  color: #5e72e4;
+  /* background-color: #5E72E4; */
+  /* background: linear-gradient(#e1ebf5bd, #e1ebf5bd),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    ); */
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+  background-size: 0 3px, 100% 3px;
 }
 /* .sidebar-links a::before {
     content: '';
@@ -486,7 +510,7 @@ div *::-webkit-scrollbar-thumb {
 .project-card {
   transform: perspective(1px) translateZ(0);
   backface-visibility: hidden;
-  background-color: #f6f6f6f0;
+  background-color: white; /* f6f6f6f0 */
 }
 .project-card:hover {
   /* background-color: rgba(255, 255, 255, 0.35); */
@@ -507,4 +531,8 @@ div *::-webkit-scrollbar-thumb {
   -moz-box-shadow: 0px 0px 136px 3px rgba(57, 52, 52, 0.52);
   box-shadow: 0px 0px 136px 3px rgba(57, 52, 52, 0.52); */
   /* border: 1px solid rgba(240, 248, 255, 0.167); */
+}
+
+.li-link:hover {
+  background-color: #734b6d;
 }

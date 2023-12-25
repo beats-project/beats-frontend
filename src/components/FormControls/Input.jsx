@@ -31,7 +31,7 @@ export const Input = ({
   return (
     <div className={cn('flex flex-col gap-2 mb-2 input-div', className)}>
       <div className="flex justify-between">
-        <label htmlFor={id} className="font-semibold text-normal capitalize text-gray-700">
+        <label htmlFor={id} className="font-normal text-sm capitalize text-gray-700 flex gap-2 items-center">
           <Icon />
           {label}
         </label>

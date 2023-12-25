@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
-// import './index.css'
+import './main.css'
 import { BrowserRouter } from 'react-router-dom'
 import Root from './Root.jsx'
 import Loader from './components/Loader.jsx'

@@ -17,8 +17,8 @@ const Dashboard = () => {
   }, [])
   return (
     <>
-      <div className="dashboard-container p-4 rounded-xl">
-        <p className="text-2xl font-semibold">My Projects</p>
+      <div className="dashboard-container rounded-xl">
+        <p className="text-2xl font-semibold text-white">My Projects</p>
         <div className="projects-list flex flex-2 grow items-around flex-wrap mt-3 -m-3">
           {projects.map((project, idx) => (
             <div className="w-1/3 p-3" key={idx}>
@@ -29,6 +29,12 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
+      <div
+        style={{
+          height: '300px',
+        }}
+        className="mt-8 bg-gradient-to-r from-blue-950 to-indigo-950 rounded-lg"
+      ></div>
     </>
   )
 }

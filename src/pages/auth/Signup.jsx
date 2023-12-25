@@ -55,7 +55,7 @@ const SignUp = props => {
         {/*  </p>*/}
         {/*)}*/}
         <div className="flex flex-col mt-8">
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-4">
             <Input {...firstNameValidation} />
             <Input {...lastNameValidation} />
           </div>
@@ -63,7 +63,7 @@ const SignUp = props => {
             <Input {...emailValidation} />
             <></>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-4">
             <Input {...passwordValidation} />
             <Input {...confirmPasswordValidation} />
           </div>

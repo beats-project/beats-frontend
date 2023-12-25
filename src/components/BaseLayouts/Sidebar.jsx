@@ -16,9 +16,9 @@ export const Sidebar = () => {
           {routes.map((item, idx) => {
             const { title, path, Icon, color } = item
             return (
-              <li key={idx}>
+              <li key={idx} className='li-link'>
                 <NavLink
-                  className="sidebar-rainbow link flex border-r-4 border-transparent  items-center gap-2 p-5 transition-all hover:border-r-4 hover:text-blue-950 hover:bg-gray-50 text-blue-900"
+                  className="sidebar-rainbow link flex border-r-4 border-transparent  items-center gap-2 p-5 transition-all hover:border-r-4 hover:text-blue-950 text-blue-900"
                   to={path}
                 >
                   <div>
