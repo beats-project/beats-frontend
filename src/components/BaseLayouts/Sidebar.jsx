@@ -14,7 +14,7 @@ export const Sidebar = () => {
         </h3>
         <ul className="sidebar-links rounded-xl">
           {routes.map((item, idx) => {
-            const { title, path, Icon } = item
+            const { title, path, Icon, color } = item
             return (
               <li key={idx}>
                 <NavLink
@@ -22,9 +22,12 @@ export const Sidebar = () => {
                   to={path}
                 >
                   <div>
-                    <Icon className="text-2xl link-icon transition-all " />
+                    <Icon
+                      className="text-2xl link-icon transition-all"
+                      color={color}
+                    />
                   </div>
-                  <span className="text-xs link-text transition-all ">
+                  <span className="text-xs transition-all">
                     {title}
                   </span>
                 </NavLink>

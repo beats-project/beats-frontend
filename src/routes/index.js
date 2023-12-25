@@ -23,6 +23,7 @@ const coreRoutes = [
   {
     title: 'Dashboard',
     Icon: MdOutlineDashboard,
+    color: 'MediumSeaGreen',
     HIcon: MdDashboard,
     path: '/',
     component: Dashboard,
@@ -30,6 +31,7 @@ const coreRoutes = [
   {
     title: 'Teams',
     Icon: MdWorkspacesOutline,
+    color: 'crimson',
     HIcon: MdWorkspaces,
     path: '/teams',
     component: Teams,
@@ -37,6 +39,7 @@ const coreRoutes = [
   {
     title: 'Calender',
     Icon: BsCalendar2Day,
+    color: 'purple',
     HIcon: BsCalendar2DayFill,
     path: '/calender',
     component: Calendar,
@@ -44,6 +47,7 @@ const coreRoutes = [
   {
     title: 'Settings',
     Icon: RiSettings4Line,
+    color: 'deepPink',
     HIcon: RiSettings5Fill,
     path: '/settings',
     component: Settings,
@@ -51,6 +55,7 @@ const coreRoutes = [
   {
     title: 'Profile',
     Icon: RiUserLine,
+    color: 'OrangeRed',
     HIcon: RiUserFill,
     path: '/profile',
     component: Profile,
