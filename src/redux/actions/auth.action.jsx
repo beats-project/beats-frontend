@@ -59,8 +59,7 @@ export const refreshToken = () => async (dispatch, getState) => {
   // })
   //   .then(res => console.log(res))
   //   .catch(err => console.log(err))
-  const api = apiClientPrivate
-  api
+  apiClientPrivate
     .get('demo-controller')
     .then(res => console.log(res))
     .catch(err => console.log(err))

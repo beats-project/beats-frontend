@@ -45,7 +45,7 @@ const SignIn = props => {
 
   const dispatch = useDispatch()
   const doLogin = methods.handleSubmit(data => {
-    console.log(data)
+    // console.log(data)
     dispatch(login(data.email, data.password))
     methods.reset()
   })
