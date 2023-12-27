@@ -1,32 +1,36 @@
-class TokenService {
-  getLocalRefreshToken() {
-    const user = JSON.parse(localStorage.getItem('user'))
-    return user?.refreshToken
+import Client from '../axios/api'
+
+import { axiosPublic } from '../axios/axiosPublic'
+import axiosPrivate from '../axios/axiosPrivate'
+import TokenService from './token.service'
+
+const URL_PREFIX = 'auth/'
+
+class AuthService {
+  constructor(isPrivate) {
+    if (isPrivate == true) {
+      this.client = new Client(axiosPrivate)
+    } else this.client = new Client(axiosPublic)
+  }
+  login(email, password) {
+    return this.client.post(URL_PREFIX + 'login', {
+      email,
+      password,
+    })
   }
 
-  getLocalAccessToken() {
-    const user = JSON.parse(localStorage.getItem('user'))
-    return user?.accessToken
+  logout() {
+    TokenService.removeUser()
   }
 
-  updateLocalAccessToken(token) {
-    let user = JSON.parse(localStorage.getItem('user'))
-    user.accessToken = token
-    localStorage.setItem('user', JSON.stringify(user))
-  }
+  register(email, password) {}
 
-  getUser() {
-    return JSON.parse(localStorage.getItem('user'))
+  getCurrentUser() {
+    return TokenService.getUser()
   }
-
-  setUser(user) {
-    console.log(JSON.stringify(user))
-    localStorage.setItem('user', JSON.stringify(user))
-  }
-
-  removeUser() {
-    localStorage.removeItem('user')
+  refreshToken() {
+    return this.client.get('demo-controller')
   }
 }
 
-export default new TokenService()
+export default AuthService

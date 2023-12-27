@@ -48,6 +48,27 @@ const ProjectCard = ({ project }) => {
     borderRadius: '50%',
     color: 'white',
   }
+  const findCompletedTasks = tasks => {
+    let newArray = tasks?.filter(function (el) {
+      return el.status == 'COMPLETED'
+    })
+    console.log(newArray)
+    return newArray.length
+  }
+
+  const showCompletedratio = project => {
+    const newLength = findCompletedTasks(project.tasks)
+    const ratio = newLength + ' / ' + project.tasks.length
+    return <span>{ratio}</span>
+  }
+
+  const showCompletedPercentage = project => {
+    const newLength = findCompletedTasks(project.tasks)
+    if (newLength > 0) {
+      return (newLength / project.tasks.length) * 100
+    } else return 0
+  }
+
   return (
     <Card className="project-card !px-6 hover:scale-105 transition-all ease-in-out duration-200">
       <div className="flex gap-2">
@@ -56,9 +77,9 @@ const ProjectCard = ({ project }) => {
           {'1 Jan 2020'}
         </span>
       </div>
-      <div className="mb-6 flex justify-between items-center">
+      <div className="mb2 flex justify-between items-center">
         <span className="project-name text-2xl text-gray-800 ">
-          {'Todo App'}
+          {project.name}
         </span>
         <AiOutlineProject
           style={iconStyle}
@@ -66,21 +87,25 @@ const ProjectCard = ({ project }) => {
           size={'3em'}
         />
       </div>
-      {/* <div className="mb-2">
-        <span className="text-gray-400">{'20%'} completed</span>
-      </div> */}
+      <div className="mb-2">
+        <span className="text-gray-400">
+          {showCompletedratio(project)} Completed
+        </span>
+      </div>
       <div>
         <div className="w-full h-2 bg-violet-200 border-x border-y rounded-full mb-2">
           <div
             className={classNames(
               'h-full text-center text-xs text-white bg-green-600 rounded-full',
             )}
-            style={{ width: `20%` }}
+            style={{ width: showCompletedPercentage(project) + '%' }}
           ></div>
         </div>
         <div className="text-right">
-          <span className="text-sm text-gray-600 font-semibold">{'20'}%</span>
-          <span className='text-sm font-normal ml-2 text-gray-600'>Done</span>
+          <span className="text-sm text-gray-600 font-semibold">
+            {showCompletedPercentage(project)}%
+          </span>
+          <span className="text-sm font-normal ml-2 text-gray-600">Done</span>
         </div>
       </div>
     </Card>

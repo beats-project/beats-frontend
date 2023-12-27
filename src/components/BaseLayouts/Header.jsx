@@ -7,10 +7,8 @@ import { clientPaths } from '../../utils/constants.js'
 import { logout } from '../../redux/actions/auth.action.jsx'
 import { getPageHeading } from '../../redux/reducers/application.js'
 import { getUserName } from '../../redux/reducers/auth.reducer.js'
-
 import UserAvatar from '../../assets/female-avatar.svg'
 
-// const getHeading = state => state
 
 export const Header = () => {
   const pageHeading = useSelector(getPageHeading, shallowEqual)
