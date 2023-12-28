@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getFromLS } from '../utils'
+import { getFromLS, setToLS } from '../utils'
 import { BASE_URL } from '../utils/constants'
 
 const instance = axios.create({
@@ -19,6 +19,41 @@ instance.interceptors.request.use(
     return config
   },
   error => Promise.reject(error),
+)
+
+instance.interceptors.response.use(
+  response => response,
+  async error => {
+    const config = error?.config
+
+    if (error?.response?.status === 403 && !config?.sent) {
+      config.sent = true
+      console.log('403 Request')
+
+      const res = await axios.post(
+        'http://localhost:8080/api/v1/auth/refresh-token',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(getFromLS('user'))?.refreshToken
+            }`,
+          },
+        },
+      )
+      console.log(res.data.data.accessToken)
+      const user = JSON.parse(getFromLS('user'))
+      const newUser = {
+        ...user,
+        accessToken: res.data.data.accessToken,
+        refreshToken: res.data.data.refreshToken,
+      }
+      setToLS('user', JSON.stringify(newUser))
+
+      return instance(config)
+    }
+    return Promise.reject(error)
+  },
 )
 
 // instance.interceptors.response.use(

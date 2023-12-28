@@ -10,6 +10,7 @@ import apiClientPrivate from '../../axios/axiosConfig'
 import AuthService from '../../services/auth.service'
 import { getRequest } from '../../axios/axiosClient'
 import ProjectService from '../../services/project.service'
+import { delay } from '../../utils/asyncDelay'
 
 export const login = (email, password) => async dispatch => {
   toast.promise(
@@ -107,6 +108,7 @@ export const refreshToken = () => async (dispatch, getState) => {
   //   .then(res => console.log(res))
   //   .catch(err => console.log(err))
   try {
+    await delay(2000)
     const res = await new ProjectService(true).getAllProjects()
     if (res.data?.data)
       dispatch({
@@ -115,6 +117,10 @@ export const refreshToken = () => async (dispatch, getState) => {
       })
     console.log(res.data?.data)
   } catch (err) {
+    dispatch({
+      type: GET_ALL_PROJECTS,
+      payload: { projects: [] },
+    })
     console.log(err)
   }
 }

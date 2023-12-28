@@ -48,26 +48,6 @@ const ProjectCard = ({ project }) => {
     borderRadius: '50%',
     color: 'white',
   }
-  const findCompletedTasks = tasks => {
-    let newArray = tasks?.filter(function (el) {
-      return el.status == 'COMPLETED'
-    })
-    console.log(newArray)
-    return newArray.length
-  }
-
-  const showCompletedratio = project => {
-    const newLength = findCompletedTasks(project.tasks)
-    const ratio = newLength + ' / ' + project.tasks.length
-    return <span>{ratio}</span>
-  }
-
-  const showCompletedPercentage = project => {
-    const newLength = findCompletedTasks(project.tasks)
-    if (newLength > 0) {
-      return (newLength / project.tasks.length) * 100
-    } else return 0
-  }
 
   return (
     <Card className="project-card !px-6 hover:scale-105 transition-all ease-in-out duration-200">
@@ -81,15 +61,11 @@ const ProjectCard = ({ project }) => {
         <span className="project-name text-2xl text-gray-800 ">
           {project.name}
         </span>
-        <AiOutlineProject
-          style={iconStyle}
-          // color={colors[Math.floor(Math.random() * colors.length)]}
-          size={'3em'}
-        />
+        <AiOutlineProject style={iconStyle} size={'3em'} />
       </div>
       <div className="mb-2">
         <span className="text-gray-400">
-          {showCompletedratio(project)} Completed
+          {completedRatio(project.tasks)} Completed
         </span>
       </div>
       <div>
@@ -98,18 +74,38 @@ const ProjectCard = ({ project }) => {
             className={classNames(
               'h-full text-center text-xs text-white bg-green-600 rounded-full',
             )}
-            style={{ width: showCompletedPercentage(project) + '%' }}
+            style={{ width: completedPercentage(project.tasks) + '%' }}
           ></div>
         </div>
         <div className="text-right">
           <span className="text-sm text-gray-600 font-semibold">
-            {showCompletedPercentage(project)}%
+            {completedPercentage(project.tasks)}%
           </span>
           <span className="text-sm font-normal ml-2 text-gray-600">Done</span>
         </div>
       </div>
     </Card>
   )
+}
+
+const findCompletedTasks = tasks => {
+  let newArray = tasks?.filter(function (el) {
+    return el.status == 'COMPLETED'
+  })
+  return newArray.length
+}
+
+const completedRatio = tasks => {
+  const newLength = findCompletedTasks(tasks)
+  const ratio = newLength + ' / ' + tasks.length
+  return <span>{ratio}</span>
+}
+
+const completedPercentage = tasks => {
+  const newLength = findCompletedTasks(tasks)
+  if (newLength > 0) {
+    return (newLength / tasks.length) * 100
+  } else return 0
 }
 
 export default ProjectCard
