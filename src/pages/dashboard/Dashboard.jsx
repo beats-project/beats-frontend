@@ -7,6 +7,8 @@ import { refreshToken } from '../../redux/actions/auth.action'
 import { getAllProjects } from '../../redux/reducers/project.reducer'
 import DataLoader from '../../components/DataLoader'
 import autoAnimate from '@formkit/auto-animate'
+import { clearProjects } from '../../redux/actions/project.action'
+import NoDataFound from '../../components/BaseLayouts/NoDataFound'
 
 const Dashboard = () => {
   const [projects, setProjects] = useState([])
@@ -15,33 +17,30 @@ const Dashboard = () => {
   const projectsList = useSelector(getAllProjects)
 
   const [isLoading, setLoading] = useState(true)
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
     dashboardRef.current && autoAnimate(dashboardRef.current)
   }, [dashboardRef])
 
   useEffect(() => {
+    setLoading(true)
     dispatch(setPageHeading('Dashboard'))
     setTimeout(() => {
-      dispatch(refreshToken())
-    }, 2000)
+      dispatch(refreshToken(setLoading))
+      setLoading(false)
+    }, 1000)
   }, [])
 
   useEffect(() => {
     setProjects(projectsList)
   }, [projectsList])
 
-  const onLoadEffect = () => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000)
-  }
-
-  useEffect(onLoadEffect, [])
-
-  // if (isLoading) {
-  //   return <DataLoader />
-  // }
+  useEffect(() => {
+    return () => {
+      dispatch(clearProjects())
+    }
+  }, [])
 
   return (
     <>
@@ -51,20 +50,17 @@ const Dashboard = () => {
           className="projects-list flex flex-2 grow items-around flex-wrap mt-3 -m-3"
           ref={dashboardRef}
         >
-          {isLoading ? (
-            <DataLoader />
-          ) : projects.length > 0 ? (
-            projects.map((proj, idx) => (
-              <div className="w-1/3 p-3" key={idx}>
-                <NavLink to="/sb">
-                  <ProjectCard project={proj} />
-                </NavLink>
-              </div>
-            ))
-          ) : (
-            // <NoDataFound />
-            <></>
-          )}
+          {isLoading ? <DataLoader /> : <></>}
+          {projects.length == 0
+            ? // <DataLoader />
+              !isLoading && <NoDataFound />
+            : projects.map((proj, idx) => (
+                <div className="w-1/3 p-3" key={idx}>
+                  <NavLink to="/sb">
+                    <ProjectCard project={proj} />
+                  </NavLink>
+                </div>
+              ))}
         </div>
       </div>
       {/* <div

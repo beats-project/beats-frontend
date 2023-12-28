@@ -10,4 +10,19 @@ const rootReducer = combineReducers({
   projectReducer: projectReducer,
 })
 
+// const mainReducer = combineReducers({
+//   /* Top-level reducers */
+//   appData: appReducer,
+//   authReducer: authReducer,
+//   projectReducer: projectReducer,
+// })
+
+// const rootReducer = (state, action) => {
+//   if (action.type === 'USER_LOGOUT') {
+//     return mainReducer(undefined, action)
+//   }
+
+//   return mainReducer(state, action)
+// }
+
 export default rootReducer

@@ -3,6 +3,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   GET_ALL_PROJECTS,
+  CLEAR_ALL_PROJECTS,
 } from './ActionTypes'
 import toast from 'react-hot-toast'
 import { getFromLS, removeFromLS, setToLS } from '../../utils'
@@ -89,6 +90,9 @@ export const logout = () => async dispatch => {
   dispatch({
     type: LOGOUT,
   })
+  dispatch({
+    type: 'USER_LOGOUT',
+  })
   toast.success('Logged out')
 }
 
@@ -108,7 +112,6 @@ export const refreshToken = () => async (dispatch, getState) => {
   //   .then(res => console.log(res))
   //   .catch(err => console.log(err))
   try {
-    await delay(2000)
     const res = await new ProjectService(true).getAllProjects()
     if (res.data?.data)
       dispatch({

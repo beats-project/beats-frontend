@@ -1,4 +1,4 @@
-import { GET_ALL_PROJECTS } from '../actions/ActionTypes'
+import { CLEAR_ALL_PROJECTS, GET_ALL_PROJECTS } from '../actions/ActionTypes'
 
 const initialState = { projects: [] }
 
@@ -8,9 +8,15 @@ export default function projectReducer(state = initialState, action) {
       return { ...state, projects: action.payload.projects }
     }
 
+    case CLEAR_ALL_PROJECTS: {
+      return { ...state, projects: action.payload.projects }
+    }
+
     default:
       return state
   }
 }
 
-export const getAllProjects = state => state.projectReducer.projects
+export const getAllProjects = state => {
+  return state.projectReducer.projects
+}
